@@ -12,6 +12,9 @@ export class Post {
   @Field()
   body: string;
 
+  @Field(() => String, { nullable: true })
+  filePath?: string | null;
+
   @Field(() => Int)
   userId: number;
 

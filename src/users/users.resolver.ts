@@ -6,12 +6,12 @@ import { User } from './user.model';
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
 
-  @Query(() => [User], { name: 'getAll' })
+  @Query(() => [User], { name: 'getAllUsers' })
   getAll(): Promise<User[]> {
     return this.usersService.findAll();
   }
 
-  @Query(() => User, { name: 'getOne' })
+  @Query(() => User, { name: 'getOneUser' })
   getOne(@Args('id', { type: () => Int }) id: number): Promise<User | null> {
     return this.usersService.findOne(id);
   }

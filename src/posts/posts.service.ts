@@ -20,17 +20,28 @@ export class PostsService {
     });
   }
 
-  create(title: string, body: string, userId: number): Promise<Post> {
+  create(
+    title: string,
+    body: string,
+    userId: number,
+    filePath?: string,
+  ): Promise<Post> {
     return this.prisma.post.create({
-      data: { title, body, userId },
+      data: { title, body, userId, filePath },
       include: { user: true },
     });
   }
 
-  update(id: number, title: string, body: string, userId: number): Promise<Post> {
+  update(
+    id: number,
+    title: string,
+    body: string,
+    userId: number,
+    filePath?: string,
+  ): Promise<Post> {
     return this.prisma.post.update({
       where: { id },
-      data: { title, body, userId },
+      data: { title, body, userId, filePath },
       include: { user: true },
     });
   }
